@@ -1,7 +1,146 @@
-<robot name="robot_lab3">
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="phantom_4R">
+     <xacro:include filename="$(find lab3_robotica_leonardo)/urdf/my_macros.xacro"/>
      
-     <link name="base_link">
-          
+     <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+     </material>
+
+     <link name="world">    
+     </link>      
+     
+
+     <joint name="fixed" type="fixed">
+          <parent link="world"/>
+          <child link="base_link"/>
+     </joint>    
+
+     <link name="base_link">          
      </link>
+
+     <xacro:my_joint 
+     name = "joint_1"
+     type = "revolute"
+     origin_xyz = "0 0 0.137"
+     origin_rpy = "0 0 0"
+     parent = "base_link"
+     child = "link_1"
+     axis = "0 0 1"
+     limit_l = "-3.14"
+     limit_u = "3.14"
+     limit_e ="10.0"
+     limit_v = "0.5"
+     />
+
+     <xacro:my_link 
+     name= "link_1"
+     origin_xyz= "0.0 0.0 -0.0685"
+     origin_rpy= "0.0 0.0 0.0"
+     radius= "0.0137"
+     length= "0.137"
+     material="red"
+     />
+
+     <xacro:my_joint 
+     name = "joint_2"
+     type = "revolute"
+     origin_xyz = "0 0 0"
+     origin_rpy = "1.5708 -0.7854 0.0"
+     parent = "link_1"
+     child = "link_2"
+     axis = "0 0 1"
+     limit_l = "-3.14"
+     limit_u = "3.14"
+     limit_e ="10.0"
+     limit_v = "0.5"
+     />
+
+     <xacro:my_link 
+     name= "link_2"
+     origin_xyz= "0.0525 0.0 0"
+     origin_rpy= "0.0 1.5708 0.0"
+     radius= "0.0105"
+     length= "0.105"
+     material="red"
+     />
+
+     <xacro:my_joint 
+     name = "joint_3"
+     type = "revolute"
+     origin_xyz = "0.105 0.0 0.0"
+     origin_rpy = "0.0 0.0 -0.7854"
+     parent = "link_2"
+     child = "link_3"
+     axis = "0 0 1"
+     limit_l = "-3.14"
+     limit_u = "3.14"
+     limit_e ="10.0"
+     limit_v = "0.5"
+     />
+
+
+     <xacro:my_link 
+     name= "link_3"
+     origin_xyz= "0.0525 0.0 0"
+     origin_rpy= "0.0 1.5708 0.0"
+     radius= "0.0105"
+     length= "0.105"
+     material="red"
+     />
+
+     <xacro:my_joint 
+     name = "joint_4"
+     type = "revolute"
+     origin_xyz = "0.105 0.0 0.0"
+     origin_rpy = "0.0 0.0 0.0"
+     parent = "link_3"
+     child = "link_4"
+     axis = "0 0 1"
+     limit_l = "-3.14"
+     limit_u = "3.14"
+     limit_e ="10.0"
+     limit_v = "0.5"
+     />
+
+     <xacro:my_link 
+     name= "link_4"
+     origin_xyz= "0.0475 0.0 0"
+     origin_rpy= "0.0 1.5708 0.0"
+     radius= "0.0095"
+     length= "0.095"
+     material="red"
+     />
+
+     <xacro:my_joint 
+     name = "joint_5"
+     type = "fixed"
+     origin_xyz = "0.095 0.0 0.0"
+     origin_rpy = "0.0 -1.5708 3.1416"
+     parent = "link_4"
+     child = "tool"
+     axis = "0 0 1"
+     limit_l = "-3.14"
+     limit_u = "3.14"
+     limit_e ="10.0"
+     limit_v = "0.5"
+     />
+
+     
+
+     <xacro:my_link 
+     name= "tool"
+     origin_xyz= "0.0 0.0 0.0"
+     origin_rpy= "0.0 0.0 0.0"
+     radius= "0.0"
+     length= "0.0"
+     material="red"
+     />
+
+
+
+     
+
+     
+
 
 </robot>

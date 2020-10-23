@@ -47,6 +47,30 @@
             </collision>  
         </link>
     </xacro:macro>
+
+
+    <xacro:macro name="my_link_cube" params="name origin_xyz origin_rpy length_x length_y length_z material">
+        <link name="${name}">
+            <inertial>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <mass value="1.0"/>
+                <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+            </inertial>
+            <visual>
+                <origin xyz="${origin_xyz}" rpy="${origin_rpy}"/>
+                <geometry>
+                    <box size="${length_x} ${length_y} ${length_z}"/> 
+                </geometry>
+                <material name="${material}"/>
+            </visual>
+            <collision>
+                <origin xyz="${origin_xyz}" rpy="${origin_rpy}"/>
+                <geometry>
+                    <box size="${length_x} ${length_y} ${length_z}"/> 
+                </geometry>
+            </collision>  
+        </link>
+    </xacro:macro>
     
 
 </robot>
